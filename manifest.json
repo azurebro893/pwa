@@ -1,0 +1,9 @@
+{
+  "name": "Girls Empowerment PWA",
+  "short_name": "Empower",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#ffd6ff",
+  "theme_color": "#b300d6",
+  "icons": []
+}

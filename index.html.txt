@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Girls Empowerment PWA</title>
+<link rel="manifest"rel="stylesheet" href="ead>
+
+<body>
+<div class="container">
+
+    <h1 class="title">🦋 Girls Empowerment</h1>
+
+    <!-- Bayacorp Link -->
+    <section class="card">
+        <h2>Visit Baya Corp</h2>
+        <atps://bayacorp.comGo to Bayacorp.com</a>
+    </section>
+
+    <!-- Journaling -->
+    <section class="card">
+        <h2>Daily Journal</h2>
+        <textarea id="journal" placeholder="Write your thoughts here..."></textarea>
+        <button onclick="saveJournal()" class="button">Save Locally</button>
+        <p class="note">Your journal is saved ONLY on your device.</p>
+    </section>
+
+    <!-- Wix Chat -->
+    <section class="card">
+        <h2>Private Chat</h2>
+        <a href="https://YOUR-WIX-CHAT-LINK" target="_blank" class="button/a>
+    </section>
+
+    <!-- Affirmations -->
+    <section class="card">
+        <h2>Daily Affirmation</h2>
+        <p id="affirmationText"></p>
+        <button onclick="newAffirmation()" class="button">New Affirmation</button>
+    </section>
+
+</div>
+</body>
+</html>
