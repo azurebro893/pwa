@@ -1,34 +1,49 @@
-// Local Journal Save
+// 1. Journal Logic - Save to Phone Memory
 function saveJournal() {
-    const entry = document.getElementById("journal").value;
-    localStorage.setItem("journalEntry", entry);
-    alert("Your journal is saved on your device only.");
+    const journalInput = document.getElementById('journal');
+    const statusText = document.querySelector('section p'); // The small text under the button
+
+    if (journalInput.value.trim() !== "") {
+        // Save the text into the browser's storage
+        localStorage.setItem('userJournal', journalInput.value);
+        
+        // Show a quick success message
+        statusText.innerText = "✅ Saved to your device!";
+        statusText.style.color = "#2ecc71";
+        
+        setTimeout(() => {
+            statusText.innerText = "Your journal is private to this device.";
+            statusText.style.color = "#636e72";
+        }, 3000);
+    }
 }
 
-// Load Saved Journal
-window.onload = function () {
-    const saved = localStorage.getItem("journalEntry");
-    if (saved) document.getElementById("journal").value = saved;
-    newAffirmation();
+// 2. Auto-Load Journal on Startup
+window.onload = function() {
+    const savedText = localStorage.getItem('userJournal');
+    if (savedText) {
+        document.getElementById('journal').value = savedText;
+    }
 };
 
-// Affirmations List
-const affirmations = [
-    "You are powerful beyond measure.",
-    "Your voice matters.",
-    "You are growing every day.",
-    "You are worthy of love and success.",
-    "Your dreams are valid.",
-    "You can overcome anything.",
-    "You are brilliant, brave, and beautiful."
-];
-
+// 3. Affirmation Logic
 function newAffirmation() {
-    const random = affirmations[Math.floor(Math.random() * affirmations.length)];
-    document.getElementById("affirmationText").innerText = random;
-}
-
-// Service Worker Registration
-if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("sw.js");
+    const affirmations = [
+        "You are powerful beyond measure.",
+        "Your potential is limitless.",
+        "You deserve to be heard and respected.",
+        "Every step forward is a victory.",
+        "You are the architect of your own future."
+    ];
+    
+    const display = document.getElementById('affirmation-display');
+    
+    // Add a quick fade-out effect
+    display.style.opacity = 0;
+    
+    setTimeout(() => {
+        const random = affirmations[Math.floor(Math.random() * affirmations.length)];
+        display.innerText = `"${random}"`;
+        display.style.opacity = 1;
+    }, 200);
 }
