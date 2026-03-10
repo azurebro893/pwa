@@ -28,3 +28,4 @@ jobs:
           app_location: "/" 
           api_location: "" 
           output_location: "" # Leave empty for plain HTML/JS
+          skip_app_build: true # Add this line to stop the error!
