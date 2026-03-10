@@ -1,42 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Girls Empowerment PWA</title>
-<link rel="manifest"rel="stylesheet" href="ead>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Girls Empowerment PWA</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 <body>
-<div class="container">
 
-    <h1 class="title">🦋 Girls Empowerment</h1>
+    <header>Girls Empowerment</header>
 
-    <!-- Bayacorp Link -->
-    <section class="card">
-        <h2>Visit Baya Corp</h2>
-        <atps://bayacorp.comGo to Bayacorp.com</a>
-    </section>
+    <main>
+        <section>
+            <h2>Daily Journal</h2>
+            <textarea id="journal" rows="4" placeholder="How are you feeling today?"></textarea>
+            <button onclick="saveJournal()">Save Locally</button>
+            <p style="font-size: 0.8rem; color: #636e72;">Your journal is private to this device.</p>
+        </section>
 
-    <!-- Journaling -->
-    <section class="card">
-        <h2>Daily Journal</h2>
-        <textarea id="journal" placeholder="Write your thoughts here..."></textarea>
-        <button onclick="saveJournal()" class="button">Save Locally</button>
-        <p class="note">Your journal is saved ONLY on your device.</p>
-    </section>
+        <section>
+            <h2>Private Chat & Community</h2>
+            <a href="#">Visit Baya Corp &rarr;</a>
+        </section>
 
-    <!-- Wix Chat -->
-    <section class="card">
-        <h2>Private Chat</h2>
-        <a href="https://YOUR-WIX-CHAT-LINK" target="_blank" class="button/a>
-    </section>
+        <section>
+            <h2>Daily Affirmation</h2>
+            <div id="affirmation-display" style="font-style: italic; margin-bottom: 15px;">"You are capable of amazing things."</div>
+            <button onclick="newAffirmation()">New Affirmation</button>
+        </section>
+    </main>
 
-    <!-- Affirmations -->
-    <section class="card">
-        <h2>Daily Affirmation</h2>
-        <p id="affirmationText"></p>
-        <button onclick="newAffirmation()" class="button">New Affirmation</button>
-    </section>
-
-</div>
+    <script src="app.js"></script>
 </body>
 </html>
