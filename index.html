@@ -8,25 +8,36 @@
 </head>
 <body>
 
-    <header>Girls Empowerment</header>
+    <header>
+        <img src="logo.png" alt="Baya Logo" class="app-logo">
+        <span class="header-text">Girls Empowerment</span>
+    </header>
 
     <main>
-        <section>
+        <section class="journal-section">
+            <div class="date-time-wrapper">
+                <span id="current-date"></span>
+                <span id="current-time"></span>
+            }</div>
+            
             <h2>Daily Journal</h2>
-            <textarea id="journal" rows="4" placeholder="How are you feeling today?"></textarea>
-            <button onclick="saveJournal()">Save Locally</button>
-            <p style="font-size: 0.8rem; color: #636e72;">Your journal is private to this device.</p>
+            <textarea id="journal" rows="5" placeholder="How are you feeling today?"></textarea>
+            
+            <button onclick="saveJournal()" id="save-btn">Save Entry</button>
+            <p class="journal-status" id="status-text">Your journal is private to this device.</p>
         </section>
 
-        <section>
-            <h2>Private Chat & Community</h2>
-            <a href="#">Visit Baya Corp &rarr;</a>
-        </section>
-
-        <section>
+        <section class="affirmation-section">
             <h2>Daily Affirmation</h2>
-            <div id="affirmation-display" style="font-style: italic; margin-bottom: 15px;">"You are capable of amazing things."</div>
-            <button onclick="newAffirmation()">New Affirmation</button>
+            <div id="affirmation-display" class="affirmation-text">"You are capable of amazing things."</div>
+            <button onclick="newAffirmation()" class="btn-secondary">New Affirmation</button>
+        </section>
+        
+        <section class="links-section">
+            <a href="http://www.bayacorp.org" target="_blank" class="baya-link">
+                Visit Baya Corp &rarr;
+                <div class="tagline">Beautiful as you are</div>
+            </a>
         </section>
     </main>
 
