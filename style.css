@@ -1,88 +1,141 @@
-/* Mobile-App Look and Feel */
+/* BAYA App Theme */
 :root {
-    --primary: #6c5ce7;
-    --secondary: #a29bfe;
-    --bg: #f9f9fb;
-    --text: #2d3436;
-    --white: #ffffff;
+    --baya-lavender: #be84d8; /* Sampled from the logo butterfly */
+    --baya-black: #000000;
+    --baya-gray: #7f8c8d;
+    --bg-main: #fcfbfe; /* Very light lavender background */
+    --card-bg: #ffffff;
+    --border: #eaecf1;
 }
 
 body {
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    background-color: var(--bg);
-    color: var(--text);
+    font-family: 'SF Pro Display', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-main);
+    color: var(--baya-black);
     margin: 0;
     padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
-/* Header like a Mobile App */
 header {
-    background: var(--primary);
-    color: white;
-    width: 100%;
-    padding: 20px 0;
-    text-align: center;
-    font-weight: bold;
-    font-size: 1.2rem;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    background: var(--card-bg);
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.03);
     position: sticky;
     top: 0;
     z-index: 100;
 }
 
-/* Card Container */
+.app-logo {
+    height: 35px; /* Size the logo nicely */
+    margin-right: 12px;
+}
+
+.header-text {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: var(--baya-black);
+    letter-spacing: -0.5px;
+}
+
 main {
-    width: 90%;
-    max-width: 400px;
-    margin-top: 20px;
+    max-width: 450px; /* Mobile app width limit */
+    margin: 0 auto;
+    padding: 20px;
 }
 
 section {
-    background: var(--white);
-    border-radius: 15px;
+    background: var(--card-bg);
+    border-radius: 18px;
     padding: 20px;
     margin-bottom: 20px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+    border: 1px solid var(--border);
+}
+
+.date-time-wrapper {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: var(--baya-gray);
+    margin-bottom: 15px;
 }
 
 h2 {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     margin-top: 0;
-    color: var(--primary);
+    margin-bottom: 15px;
+    letter-spacing: -0.3px;
+    color: var(--baya-black);
 }
 
-/* Styled Inputs & Buttons */
 textarea {
     width: 100%;
-    border: 1px solid #dfe6e9;
-    border-radius: 10px;
-    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 12px;
     box-sizing: border-box;
     font-family: inherit;
-    margin-bottom: 10px;
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+    background: var(--bg-main);
+}
+
+textarea:focus {
+    outline: none;
+    border-color: var(--baya-lavender);
 }
 
 button {
-    background: var(--primary);
+    background: var(--baya-black); /* Primary button is black */
     color: white;
     border: none;
-    padding: 12px 20px;
+    padding: 14px;
     border-radius: 25px;
     width: 100%;
     font-weight: bold;
     cursor: pointer;
-    transition: transform 0.2s;
+    font-size: 0.95rem;
 }
 
-button:active {
-    transform: scale(0.95);
+.btn-secondary {
+    background: transparent;
+    color: var(--baya-black);
+    border: 1px solid var(--border);
 }
 
-a {
-    color: var(--secondary);
-    text-decoration: none;
+.btn-secondary:active {
+    background: #f1f3f6;
+}
+
+.journal-status {
+    font-size: 0.8rem;
+    color: var(--baya-gray);
+    margin-top: 15px;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.affirmation-text {
+    color: var(--baya-lavender); /* Accent color for affirmations */
     font-weight: bold;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.baya-link {
+    text-decoration: none;
+    color: var(--baya-black);
+    font-weight: bold;
+    display: block;
+    text-align: center;
+}
+
+.tagline {
+    font-size: 0.8rem;
+    font-weight: normal;
+    color: var(--baya-gray);
+    margin-top: 2px;
 }
