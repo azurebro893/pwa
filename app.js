@@ -1,14 +1,17 @@
-// 1. Update Date and Time immediately
+// --- 1. DATE & TIME ---
 function updateDateTime() {
     const now = new Date();
     const dateOptions = { weekday: 'short', month: 'short', day: 'numeric' };
-    document.getElementById('current-date').innerText = now.toLocaleDateString('en-US', dateOptions);
-    document.getElementById('current-time').innerText = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    const dateEl = document.getElementById('current-date');
+    const timeEl = document.getElementById('current-time');
+    
+    if(dateEl) dateEl.innerText = now.toLocaleDateString('en-US', dateOptions);
+    if(timeEl) timeEl.innerText = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 }
 setInterval(updateDateTime, 1000);
 updateDateTime();
 
-// 2. Affirmations Array
+// --- 2. AFFIRMATIONS ---
 const affirmations = [
     "You are capable of amazing things.",
     "Your voice matters and deserves to be heard.",
@@ -20,47 +23,37 @@ const affirmations = [
 function newAffirmation() {
     const display = document.getElementById('affirmation-display');
     const randomIndex = Math.floor(Math.random() * affirmations.length);
-    display.innerText = `"${affirmations[randomIndex]}"`;
+    if(display) display.innerText = `"${affirmations[randomIndex]}"`;
 }
 
-// 3. THE JOURNAL FUNCTION (The fix for your button)
+// --- 3. JOURNAL & SHARING ---
 async function saveAndShare() {
     const journalInput = document.getElementById('journal');
-    const logContainer = document.getElementById('log-container');
     const lastLogText = document.getElementById('last-log-text');
-    
     const entry = journalInput.value.trim();
 
     if (entry === "") {
-        alert("Please write something before saving!");
+        alert("Please write something first!");
         return;
     }
 
     const now = new Date();
     const timestamp = now.toLocaleTimeString() + ' on ' + now.toLocaleDateString();
     const fullEntry = `Baya Journal Entry (${timestamp}):\n\n${entry}`;
-
-    // A. Save to Phone Memory (Local Storage)
+    
+    // Save to local memory
     localStorage.setItem('lastBayaJournalEntry', fullEntry);
+    if(lastLogText) lastLogText.innerText = fullEntry;
     
-    // B. Show the Log on screen
-    lastLogText.innerText = fullEntry;
-    logContainer.style.display = 'block';
-    
-    // C. Clear the box
+    // Clear the box
     journalInput.value = "";
 
-    // D. TRIGGER THE IPHONE/ANDROID SHARE MENU
+    // Trigger Mobile Share Menu
     if (navigator.share) {
         try {
-            await navigator.share({
-                title: 'Baya Journal Entry',
-                text: fullEntry
-            });
-        } catch (err) {
-            console.log("Share sheet closed");
-        }
+            await navigator.share({ title: 'Baya Journal', text: fullEntry });
+        } catch (err) { console.log("Share cancelled"); }
     } else {
-        alert("Saved to log! (Note: Your browser doesn't support the pop-up share menu, but your text is saved below).");
+        alert("Entry saved to your log below!");
     }
 }
